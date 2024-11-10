@@ -1,0 +1,46 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Функция, которая срабатывает при нажатии на кнопку
+def show_student_info():
+    # Получение введенных данных из текстовых полей
+    name = name_entry.get()
+    class_number = class_number_entry.get()
+    letter = letter_entry.get()
+
+    # Формируем сообщение для вывода
+    message = f"ФИО ученика: {name}\nНомер класса: {class_number}\nБуква класса: {letter}"
+
+    # Показать данные в диалоговом окне
+    messagebox.showinfo("Информация о ученике", message)
+
+# Создание главного окна
+root = tk.Tk()
+root.title("Форма ученика")
+root.geometry("400x300")  # Устанавливаем размер окна
+
+# Создание меток и текстовых полей для ввода данных
+name_label = tk.Label(root, text="ФИО ученика:")
+name_label.pack(pady=5)
+
+name_entry = tk.Entry(root, width=40)
+name_entry.pack(pady=5)
+
+class_number_label = tk.Label(root, text="Номер класса:")
+class_number_label.pack(pady=5)
+
+class_number_entry = tk.Entry(root, width=40)
+class_number_entry.pack(pady=5)
+
+letter_label = tk.Label(root, text="Буква класса:")
+letter_label.pack(pady=5)
+
+letter_entry = tk.Entry(root, width=40)
+letter_entry.pack(pady=5)
+
+# Кнопка для отображения данных
+submit_button = tk.Button(root, text="Показать данные", command=show_student_info)
+submit_button.pack(pady=20)
+
+# Запуск главного цикла
+root.mainloop()
